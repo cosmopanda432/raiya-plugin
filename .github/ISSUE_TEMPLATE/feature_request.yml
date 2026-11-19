@@ -1,0 +1,31 @@
+name: 機能要望・改善提案
+description: 新機能や既存仕様の改善を提案する
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 解決したい課題
+      description: 今どんな場面で困っていますか。
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 提案内容
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 検討した代替案
+  - type: checkboxes
+    id: invariants
+    attributes:
+      label: 設計上の不変条件の確認
+      description: 該当しない場合は理由を本文に書いてください。
+      options:
+        - label: コアに PyYAML 以外の依存を足さない
+        - label: 三性の判定を LLM の自己申告に依存させない (sansho は決定論のまま)
+        - label: 種子・台帳を削除・減衰させない

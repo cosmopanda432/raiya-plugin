@@ -1,0 +1,70 @@
+name: バグ報告
+description: 期待と異なる動作を報告する
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        報告ありがとうございます。**会話内容・ledger・種子の本文・`<private>` の中身・API キーは貼らないでください。**
+        必要な場合は `raiya-inspect` の出力を、機微な部分を伏せた上で貼ってください。
+  - type: textarea
+    id: summary
+    attributes:
+      label: 症状
+      description: 何が起きましたか。
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期待する動作
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 再現手順
+      description: 1 ターンで再現するか、統合(consolidate)後にのみ現れるかも書いてください。
+      placeholder: |
+        1. ...
+        2. ...
+    validations:
+      required: true
+  - type: dropdown
+    id: surface
+    attributes:
+      label: 利用経路
+      options:
+        - Claude Code hooks (recall / stop / session_end)
+        - MCP サーバー (stdio)
+        - MCP サーバー (HTTP)
+        - raiya-cli
+        - raiya-inspect
+        - ライブラリとして直接利用 (MemoryEngine)
+        - その他 / 不明
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: バージョン / コミット
+      placeholder: "例: 560e3bd"
+  - type: input
+    id: env
+    attributes:
+      label: 環境
+      description: OS、Python バージョン、RAIYA_BACKEND の種類など。
+      placeholder: "例: Ubuntu 24.04 / Python 3.12 / openai-api"
+  - type: textarea
+    id: logs
+    attributes:
+      label: ログ・出力
+      description: |
+        `hooks.log` の該当行、`raiya-inspect` の出力など。会話テキストを含む `debug.log` (レベル2) は貼らないでください。
+      render: shell
+  - type: textarea
+    id: analysis
+    attributes:
+      label: 原因の見当 (任意)
+      description: 同じ state_dir / project / session_id で起きた事象かどうかも分かれば書いてください。

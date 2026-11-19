@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "raiya-plugin"
+version = "0.1.0"
+description = "raiya-plugin -- 設計書(単体エージェント・群れ運用)に基づくサブエージェント(役)運用の実装"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Apache-2.0" }
+# 依存なし (標準ライブラリのみ)。足すときは先に相談する。
+dependencies = []
+
+[project.optional-dependencies]
+dev = []
+
+[tool.setuptools.packages.find]
+include = ["raiya_plugin*"]
+
+[tool.setuptools.package-data]
+raiya_plugin = ["rules/*.md", "agents/*/*.md", "agents/assemble.sh", "skills/*/*.md"]

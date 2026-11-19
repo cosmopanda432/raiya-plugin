@@ -1,0 +1,16 @@
+name: 質問・相談
+description: 使い方や設計についての質問
+title: "[Question] "
+labels: ["question"]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: 質問内容
+    validations:
+      required: true
+  - type: textarea
+    id: tried
+    attributes:
+      label: 試したこと・読んだ資料
+      description: README のどこを読んだかを書いてもらえると回答しやすくなります。

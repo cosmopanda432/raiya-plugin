@@ -1,0 +1,17 @@
+{
+	"name": "raiya-plugin",
+	"private": true,
+	"type": "module",
+	"description": "raiya-plugin の hook を pi (pi-subagents の子) から呼ぶ橋渡しの拡張",
+	"scripts": {
+		"test": "node --test test/*.test.ts"
+	},
+	"pi": {
+		"extensions": [],
+		"subagents": {
+			"agents": [
+				"./agents"
+			]
+		}
+	}
+}
